@@ -23,6 +23,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 class Test {
@@ -74,14 +77,15 @@ class Test {
                 continue;
             }
 
+            long t = System.nanoTime();
             float[] emb1 = predictor.predict(s1);
             float[] emb2 = predictor.predict(s2);
-            long t = System.nanoTime();
             double similarity = cosine(emb1, emb2);
             long elapsed = System.nanoTime() - t;
 
+
             double roundedSimilarity = Math.round(similarity * 10.0) / 10.0;
-            System.out.println("Similarity: " + roundedSimilarity + ", time(ms): " + TimeUnit.MICROSECONDS.toMillis(elapsed));
+            System.out.println("Similarity: " + roundedSimilarity + ", time(ms): " + TimeUnit.NANOSECONDS.toMillis(elapsed));
             System.out.println();
         }
 
