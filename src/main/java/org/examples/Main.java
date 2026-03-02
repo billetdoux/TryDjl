@@ -28,7 +28,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-class Test {
+class Main {
 
     static void main() throws ModelNotFoundException, MalformedModelException, IOException, TranslateException {
         Path path = Paths.get("C:\\Users\\shah\\IdeaProjects\\TryDjl\\src\\main\\resources\\models\\minilm");
